@@ -2,6 +2,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using GameFramework.Localisation;
 public class WarningEnforceWindow : UIEnforceWindow {
 
     //public UIButton shutButton;
@@ -60,7 +61,8 @@ public class WarningEnforceWindow : UIEnforceWindow {
 
     private void InitUI(WarningWindowArgs argRecv)
     {
-        message.text = LanguageManager.Instance.GetCommonLanguageString(argRecv.stringKey);
+        //message.text = LanguageManager.Instance.GetCommonLanguageString(argRecv.stringKey);
+        message.text = GlobalLocalisation.GetText(argRecv.stringKey);
     }
 
 }

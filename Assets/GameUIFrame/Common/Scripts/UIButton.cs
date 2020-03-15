@@ -7,8 +7,10 @@ using System.Collections;
 /// <summary>
 ///     按钮类
 /// </summary>
-public class UIButton : Selectable, IPointerClickHandler,IPointerDownHandler, IPointerUpHandler, IPointerExitHandler, ISubmitHandler
+[AddComponentMenu("UI/UIButton")]
+public class UIButton : Button
 {
+    [HideInInspector] public bool bInit = false;
     private static Material _disableMat;
     public Image buttonImage;
     public string buttonImageAtalas; //按钮背景
