@@ -8,9 +8,9 @@ using UnityEngine.UI;
 /// </summary>
 public class UITagButton : UIButton
 {
+    public int groupID;
     public Image bgImg;
     public List<Image> colorImgList = new List<Image>();
-    public int groupID;
     public Color highlightColor = Color.yellow;
     public Color normalColor = Color.white;
 

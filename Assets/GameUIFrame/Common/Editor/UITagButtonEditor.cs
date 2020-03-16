@@ -8,7 +8,7 @@ using UnityEngine.UI;
 using UnityEngine;
 
 [CustomEditor(typeof(UITagButton), true)]
-public class UITagButtonEditor : UIButtonEditor
+public class UITagButtonEditor : Editor
 {
     [MenuItem("GameObject/UI/UITagButton", false, UtilEditor.Priority_UITagButton)]
     public static new UITagButton AddComponent()
@@ -21,36 +21,38 @@ public class UITagButtonEditor : UIButtonEditor
         //设置默认值
         UITagButton component =
             UtilEditor.ExtensionComponentWhenCreate<UITagButton>(typeof(UITagButton).Name.ToString());
+        UIImage image = UtilEditor.GetOrAddCompoment<UIImage>(component.gameObject);
+        component.targetGraphic = image;
         SetDefaultValue(component);
         return component;
     }
 
     UITagButton component;
 
-    public override void OnInspectorGUI()
-    {
-        component = (UITagButton) target;
-//            component.Normal = (GameObject)EditorGUILayout.ObjectField("Normal", component.Normal, typeof(GameObject), true);
-//            component.Choose = (GameObject)EditorGUILayout.ObjectField("Choose", component.Choose, typeof(GameObject), true);
+//    public override void OnInspectorGUI()
+//    {
+//        component = (UITagButton) target;
+////            component.Normal = (GameObject)EditorGUILayout.ObjectField("Normal", component.Normal, typeof(GameObject), true);
+////            component.Choose = (GameObject)EditorGUILayout.ObjectField("Choose", component.Choose, typeof(GameObject), true);
+////
+////            GUILayout.BeginHorizontal();
+////            if (GUILayout.Button("Normal"))
+////            {
+////                component.SetToggleEditor();
+////            }
+////            if (GUILayout.Button("Choose"))
+////            {
+////                component.SetToggleEditor(true);
+////            }
+////            GUILayout.EndHorizontal();
 //
-//            GUILayout.BeginHorizontal();
-//            if (GUILayout.Button("Normal"))
-//            {
-//                component.SetToggleEditor();
-//            }
-//            if (GUILayout.Button("Choose"))
-//            {
-//                component.SetToggleEditor(true);
-//            }
-//            GUILayout.EndHorizontal();
-
-        //base.OnInspectorGUI();
-        if (!component.bInit)
-        {
-            component.bInit = true;
-            SetDefaultValue(component);
-        }
-    }
+//        //base.OnInspectorGUI();
+//        if (!component.bInit)
+//        {
+//            component.bInit = true;
+//            SetDefaultValue(component);
+//        }
+//    }
 
     private static void SetDefaultValue(UITagButton component)
     {
